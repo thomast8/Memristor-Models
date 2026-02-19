@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #3b82f6;
+  --color-surface: #1e1e2e;
+  --color-surface-alt: #252536;
+  --color-surface-hover: #2a2a3c;
+  --color-border: #383850;
+  --color-text: #e0e0ee;
+  --color-text-muted: #8888a0;
+  --color-current: #60a5fa;
+  --color-voltage: #f87171;
+  --color-accent: #818cf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Plotly overrides for dark theme */
+.js-plotly-plot .plotly .modebar {
+  background: transparent !important;
+}
+.js-plotly-plot .plotly .modebar-btn path {
+  fill: var(--color-text-muted) !important;
+}
+.js-plotly-plot .plotly .modebar-btn:hover path {
+  fill: var(--color-text) !important;
+}
+
+/* Slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* Number input styling */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Sidebar disclosure arrows */
+details[open] > summary .disclosure-arrow {
+  transform: rotate(90deg);
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* KaTeX styling */
+.katex {
+  font-size: 0.95em !important;
+}
