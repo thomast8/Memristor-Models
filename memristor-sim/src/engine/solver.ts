@@ -13,7 +13,7 @@
  */
 
 export interface SolverOptions {
-  /** Number of evenly-spaced output points (default 2000). */
+  /** Number of evenly-spaced output points (default 10000). */
   numPoints?: number;
   /** Relative tolerance for step-size control (default 1e-8). */
   rtol?: number;
@@ -67,7 +67,7 @@ export function solve(
   x0: number,
   options: SolverOptions = {},
 ): SolverResult {
-  const numPoints = options.numPoints ?? 2000;
+  const numPoints = options.numPoints ?? 10_000;
   const rtol = options.rtol ?? 1e-8;
   const atol = options.atol ?? 1e-10;
   const maxSteps = options.maxSteps ?? 500_000;
@@ -135,12 +135,12 @@ export function solve(
       while (outIdx < numPoints && tOut[outIdx] <= tNew + 1e-14 * Math.abs(tNew)) {
         const theta = (tOut[outIdx] - tCur) / h;
         // 4th-order Hermite interpolant for Dormand-Prince
-        const b1 = theta * (1 + theta * (-1337 / 480 + theta * (1039 / 360 - theta * 1163 / 1152)));
-        const b3 = theta * theta * (100 / 13 * (theta * (-242 / 45 + theta * 311 / 144)));
-        const b4 = theta * theta * (-125 / 48 * (theta * (-2 + theta * 151 / 144)));
-        const b5 = theta * theta * (theta * (18225 / 848 * (theta * (-3 / 5 + theta * 121 / 336))));
-        const b6 = theta * theta * (theta * (-11 / 3 * (theta * (-3 / 2 + theta * 121 / 120))));
-        const b7 = theta * theta * (theta * (1 / 2 * (theta * (-4 / 3 + theta))));
+        const b1 = theta * (1 + theta * (-8048581381 / 2820520608 + theta * (8663915743 / 2820520608 + theta * (-12715105075 / 11282082432))));
+        const b3 = theta * theta * (131558114200 / 32700410799 + theta * (-68118460800 / 10900136933 + theta * (87487479700 / 32700410799)));
+        const b4 = theta * theta * (-1754552775 / 470086768 + theta * (14199869525 / 1410260304 + theta * (-10690763975 / 1880347072)));
+        const b5 = theta * theta * (127303824393 / 49829197408 + theta * (-318862633887 / 49829197408 + theta * (701980252875 / 199316789632)));
+        const b6 = theta * theta * (-282668133 / 205662961 + theta * (2019193451 / 616988883 + theta * (-1453857185 / 822651844)));
+        const b7 = theta * theta * (40617522 / 29380423 + theta * (-110615467 / 29380423 + theta * (69997945 / 29380423)));
         const xInterp = xCur + h * (b1 * k1 + b3 * k3 + b4 * k4 + b5 * k5 + b6 * k6 + b7 * k7);
         yOut[outIdx] = clamp01(xInterp);
         outIdx++;

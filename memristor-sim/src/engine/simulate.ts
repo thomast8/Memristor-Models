@@ -71,7 +71,7 @@ export function simulate(config: SimulationConfig): SimulationResult {
     model.dxdt(t, x, signal, config.modelParams, windowFunc);
 
   // Solve
-  const numPoints = config.numPoints ?? 2000;
+  const numPoints = config.numPoints ?? 10_000;
   const sol = solve(rhs, [0, config.tMax], config.x0, { numPoints });
 
   // Compute voltage and current at each output point
