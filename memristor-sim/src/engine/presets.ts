@@ -16,6 +16,7 @@ export interface ExperimentPreset {
   id: string;
   name: string;
   description: string;
+  citation: string;
   modelId: string;
   signalType: SignalType;
   signalParams: { vp: number; vn: number; frequency: number };
@@ -36,6 +37,7 @@ export const PRESETS: ExperimentPreset[] = [
       'HP Labs ion-drift model with a 1 V, 1 Hz sine wave. Demonstrates ' +
       'basic memristive pinched-hysteresis behaviour with a Joglekar ' +
       'window function (p = 7) on a 27 nm TiO₂ device.',
+    citation: 'Strukov et al., Nature 453, 2008',
     modelId: 'hp_labs',
     signalType: 'sine',
     signalParams: { vp: 1, vn: 1, frequency: 1 },
@@ -52,6 +54,7 @@ export const PRESETS: ExperimentPreset[] = [
       'HP Labs model driven by a triangle wave (0.5 Hz), simulating a ' +
       'DC voltage sweep on an 85 nm device. Uses Joglekar window (p = 2) ' +
       'with lower RON showing a more gradual switching characteristic.',
+    citation: 'Strukov et al., Nature 453, 2008',
     modelId: 'hp_labs',
     signalType: 'triangle',
     signalParams: { vp: 1, vn: 1, frequency: 0.5 },
@@ -70,6 +73,7 @@ export const PRESETS: ExperimentPreset[] = [
       'Yakopcic model fitted to Oblea et al. device data using a ' +
       '100 Hz sine wave with 0.45 V amplitude. Shows fast switching ' +
       'in a sub-millisecond timescale characteristic of Nb-doped SrTiO₃ devices.',
+    citation: 'Oblea et al., IJCNN 2010; fitted by Yakopcic et al., IEEE EDL 2011',
     modelId: 'yakopcic',
     signalType: 'sine',
     signalParams: { vp: 0.45, vn: 0.45, frequency: 100 },
@@ -89,6 +93,7 @@ export const PRESETS: ExperimentPreset[] = [
       'Yakopcic model fitted to Oblea device with a 100 Hz triangle ' +
       'pulse (±0.25 V). Demonstrates asymmetric SET/RESET with ' +
       'low-voltage operation and different a1/a2 amplitudes.',
+    citation: 'Oblea et al., IJCNN 2010; fitted by Yakopcic et al., IEEE EDL 2011',
     modelId: 'yakopcic',
     signalType: 'triangle',
     signalParams: { vp: 0.25, vn: 0.25, frequency: 100 },
@@ -108,6 +113,7 @@ export const PRESETS: ExperimentPreset[] = [
       'Yakopcic model fitted to Miao et al. data. Triangle-wave drive ' +
       'with asymmetric amplitude (+0.75 V / −1.25 V) over a 20 s sweep. ' +
       'Exhibits strongly asymmetric I-V with lower threshold voltages.',
+    citation: 'Miao et al.; fitted by Yakopcic et al., IEEE EDL 2011',
     modelId: 'yakopcic',
     signalType: 'triangle',
     signalParams: { vp: 0.75, vn: 1.25, frequency: 1 / 20 },
@@ -127,6 +133,7 @@ export const PRESETS: ExperimentPreset[] = [
       'Yakopcic model fitted to Jo et al. data. High drive voltages ' +
       '(+4 V / −2 V) with very small current amplitudes (a₁ ≈ 3.7×10⁻⁷), ' +
       'representing a high-resistance device with sharp switching.',
+    citation: 'Jo et al.; fitted by Yakopcic et al., IEEE EDL 2011',
     modelId: 'yakopcic',
     signalType: 'triangle',
     signalParams: { vp: 4, vn: 2, frequency: 1 / 5 },

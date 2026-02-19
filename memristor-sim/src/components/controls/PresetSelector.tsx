@@ -47,6 +47,20 @@ export function PresetSelector() {
             >
               {preset.description.split('.')[0]}
             </div>
+            <div
+              style={{
+                fontSize: '10px',
+                color: 'var(--color-accent)',
+                marginTop: '3px',
+                fontStyle: 'italic',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                opacity: 0.85,
+              }}
+            >
+              ◈ {preset.citation}
+            </div>
           </button>
         );
       })}

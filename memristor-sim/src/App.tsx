@@ -29,6 +29,8 @@ export default function App() {
             minWidth: 0,
             minHeight: 0,
             overflow: 'hidden',
+            position: 'relative',
+            zIndex: 0,
           }}
         >
           <PlotPanel />
