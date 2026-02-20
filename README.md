@@ -2,6 +2,8 @@
 
 An interactive, browser-based simulator for HP Labs Ion-Drift and Yakopcic generalised memristor models. Explore memristive switching behaviour in real time with adjustable parameters, multiple experiment presets, and dark-themed Plotly charts — no backend required.
 
+**[Try it live →](https://memristor-simulator.up.railway.app)**
+
 ![Memristor Simulator](images/hero.png)
 
 ## Features
